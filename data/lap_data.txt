@@ -1,24 +1,24 @@
-Track	Alien Time	Car	My Time	Rating
-Barcelona	1:43.2	-	-	-
-Brands Hatch	1:22.2	720s EVO	1:25.4	5
-Circuit of The Americas	2:04.5	-	-	-
-Donington Park	1:25.9	-	-	-
-Hungaroring	1:42.3	-	-	-
-Imola	1:40.3	-	-	-
-Indianapolis Motor Speedway	1:34.7	-	-	-
-Kyalami	1:41.3	-	-	-
-Laguna Seca	1:21.4	-	-	-
-Misano	1:32.6	-	-	-
-Monza	1:46.7	720s EVO	1:49.5	4
-Mount Panorama	1:59.9	-	-	-
-Nurburgring	1:53.3	-	-	-
-Oulton Park	1:32.9	-	-	-
-Paul Ricard	1:52.7	-	-	-
-Silverstone	1:57.0	-	-	-
-Snetterton	1:45.2	-	-	-
-Spa Francorchamps	2:16.9	720s EVO	2:20.0	4
-Suzuka	1:59.5	-	-	-
-Valencia	1:29.8	-	-	-
-Watkins Glen	1:43.2	-	-	-
-Zandvoort	1:34.6	-	-	-
-Zolder	1:27.1	-	-	-
+Track	Alien Time	Car	My Time	Fuel Usage	Rating
+Barcelona	1:43.2	-	-	-	-
+Brands Hatch	1:22.2	720s EVO	1:25.4	2.5l	5
+Circuit of The Americas	2:04.5	-	-	-	-
+Donington Park	1:25.9	-	-	-	-
+Hungaroring	1:42.3	-	-	-	-
+Imola	1:40.3	-	-	-	-
+Indianapolis Motor Speedway	1:34.7	-	-	-	-
+Kyalami	1:41.3	-	-	-	-
+Laguna Seca	1:21.4	-	-	-	-
+Misano	1:32.6	-	-	-	-
+Monza	1:46.7	720s EVO	1:49.5	3.2l	4
+Mount Panorama	1:59.9	-	-	-	-
+Nurburgring	1:53.3	-	-	-	-
+Oulton Park	1:32.9	-	-	-	-
+Paul Ricard	1:52.7	-	-	-	-
+Silverstone	1:57.0	-	-	-	-
+Snetterton	1:45.2	-	-	-	-
+Spa Francorchamps	2:16.9	720s EVO	2:20.0	4.0l	4
+Suzuka	1:59.5	-	-	-	-
+Valencia	1:29.8	-	-	-	-
+Watkins Glen	1:43.2	-	-	-	-
+Zandvoort	1:34.6	-	-	-	-
+Zolder	1:27.1	-	-	-	-

@@ -6,12 +6,13 @@ def generate_data(file_path):
         data = []
         lines = file.readlines()
         # Set the title row
-        data.append(['Track', 'Ideal Time', 'Car', 'My Time', 'Percentage', 'Rating'])
+        data.append(['Track', 'Ideal Time', 'Car', 'My Time', 'Percentage', 'Fuel Usage', 'Rating'])
         # Format rest of the rows and count percentage
         for row in lines[1:]:
-            track, ideal_time, car, my_time, rating = row.strip().split('\t')
+            print(row.strip().split('\t'))
+            track, ideal_time, car, my_time, fuel_usage, rating = row.strip().split('\t')
             if my_time != '-':
-                percentage = f"{txt_to_time(my_time) / txt_to_time(ideal_time) * 100:.2f}%"
+                percentage = f"{lap_txt_to_time(my_time) / lap_txt_to_time(ideal_time) * 100:.2f}%"
             else:
                 percentage = '-'
             # Change Rating to stars
@@ -20,12 +21,12 @@ def generate_data(file_path):
             else:
                 stars = '-'
 
-            data.append([track, ideal_time, car, my_time, percentage, stars])
+            data.append([track, ideal_time, car, my_time, percentage, fuel_usage, stars])
 
         return data
 
 
-def txt_to_time(text):
+def lap_txt_to_time(text):
     m, s = re.split(r':', text)
     time_in_s = (float(m) * 60) + float(s)
     return time_in_s

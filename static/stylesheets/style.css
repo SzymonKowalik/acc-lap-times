@@ -1,0 +1,100 @@
+body {
+    background-color: #222;
+    color: white;
+    font-family: Bahnschrift;
+    margin: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4A4A4A;
+}
+
+/* Rest of pages */
+
+.flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+h1, h2, h3, h4 {
+    margin: 15px;
+}
+
+table, td, tr {
+    padding: 5px 10px;
+    border: solid 1px #444;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: lightblue;
+}
+
+input[type='number'] {
+    background-color: #333;
+    color: white;
+    border: none;
+    margin-left: 2px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 55px;
+    text-align: center;
+    border-radius: 5px 5px;
+    font-size: 13px;
+}
+
+/* Turn off input arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px 5px;
+}
+
+button:hover {
+    background-color: #3A3;
+    color: #222;
+}

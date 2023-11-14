@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head %}
+<script src="{{ url_for('static', filename='scripts/fuel_calculator.js' ) }}" defer></script>
+{% endblock %}
+{% block content %}
+<h1>Fuel Calculator</h1>
+<div>
+<div>
+    <b>Race Time</b>
+    <input type="number" id="race_h" name="race_h" placeholder="Hours"><b>:</b>
+    <input type="number" id="race_min" name="race_min" placeholder="Minutes">
+    <br>
+    <b>Lap Time</b>
+    <input type="number" id="lap_min" name="lap_min" placeholder="Minutes"><b>:</b>
+    <input type="number" id="lap_sec" name="lap_sec" placeholder="Seconds">
+    <br>
+    <b>Fuel Per Lap</b>
+    <input type="number" id="fuel_per_lap" name="fuel_per_lap" placeholder="Liters">
+    <br>
+    <button onclick="fuelCalculator()">Calculate</button>
+</div>
+    <div id="result">
+</div>
+</div>
+{% endblock %}
