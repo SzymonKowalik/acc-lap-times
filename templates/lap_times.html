@@ -1,7 +1,13 @@
 {% extends "base.html" %}
+{% block head %}
+<script src="{{ url_for('static', filename='scripts/modify_data_table.js' ) }}" defer></script>
+{% endblock %}
 {% block content %}
 <h1>Lap Times</h1>
-<table>
+<label for="hide_empty">
+    <input type="checkbox" id="hide_empty" name="hide_empty">Hide empty</input>
+</label>
+<table id="data_not_empty">
 {% for row in data %}
 <tr>
     {% for col in row %}
@@ -10,4 +16,19 @@
 </tr>
 {% endfor %}
 </table>
+
+<table id="data_empty" hidden>
+{% for row in data %}
+{% if row[3] != '-' %}
+<tr>
+    {% for col in row %}
+        <td>{{ col }}</td>
+    {% endfor %}
+</tr>
+{% endif %}
+{% endfor %}
+</table>
+
+<h2>Best tracks plot</h2>
+<img src="{{ url_for('static', filename='images/percentage.png' ) }}">
 {% endblock %}

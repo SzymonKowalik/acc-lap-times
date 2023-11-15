@@ -48,6 +48,7 @@ table, td, tr {
 
 table {
     border-collapse: collapse;
+    width: 800px;
 }
 
 a {
@@ -97,4 +98,12 @@ button {
 button:hover {
     background-color: #3A3;
     color: #222;
+}
+
+input[type=checkbox] {
+    accent-color: #3A3;
+}
+
+img {
+    width: 800px;
 }
