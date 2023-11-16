@@ -1,84 +1,26 @@
 import json
-import re
 import matplotlib.pyplot as plt
 import os
+from .classes import IndRaceResultRow, TrackLapTimes
 
 
-def generate_raw_data(file_path):
+def generate_lap_time_data(file_path):
     with open(file_path, 'r') as file:
         data = []
         lines = file.readlines()
         # Format rest of the rows and count percentage
         for row in lines[1:]:
             track, ideal_time, car, my_time, fuel_usage, rating = row.strip().split('\t')
-            # Calculate percentage
-            if my_time != '-':
-                percentage = round(txt_to_time(my_time) / txt_to_time(ideal_time) * 100, 2)
-            else:
-                percentage = '-'
-            # Change fuel_usage to float
-            if fuel_usage != '-':
-                fuel_usage = round(float(fuel_usage), 1)
-            data.append([track, txt_to_time(ideal_time), car, txt_to_time(my_time),
-                         percentage, fuel_usage, rating])
+
+            lap_time_row = TrackLapTimes(track, car, ideal_time, my_time, fuel_usage, rating)
+            data.append(lap_time_row)
 
         return data
 
 
-def generate_printable_data(raw_data):
-    # Set the title row
-    data = [['Track', 'Ideal Time', 'Car', 'My Time', 'Percentage', 'Fuel Usage', 'Rating']]
-    for row in raw_data:
-        track, ideal_time, car, my_time, percentage, fuel_usage, rating = row
-        # Format data
-        ideal_time = time_to_txt(ideal_time)
-        my_time = time_to_txt(my_time)
-        fuel_usage = f"{fuel_usage}l" if fuel_usage != '-' else '-'
-        percentage = f"{percentage}%" if percentage != '-' else '-'
-
-        # Change rating to stars
-        if rating != '-' and 0 <= int(rating) <= 5:
-            stars = '★' * int(rating) + '☆' * (5 - int(rating))
-        else:
-            stars = '-'
-
-        data.append([track, ideal_time, car, my_time, percentage, fuel_usage, stars])
-    return data
-
-
-def generate_all_data(file_path):
-    raw_data = generate_raw_data(file_path)
-    data = generate_printable_data(raw_data)
-    return raw_data, data
-
-
-def txt_to_time(text):
-    if text == '-':
-        return text
-    if text.count(':') == 1:
-        m, s = re.split(r':', text)
-        time_in_s = (float(m) * 60) + float(s)
-    else:
-        h, m, s = re.split(r':', text)
-        time_in_s = (float(h) * 3600) + (float(m) * 60) + float(s)
-    return time_in_s
-
-
-def time_to_txt(time):
-    if time == '-':
-        return time
-    m, s = divmod(time, 60)
-    if m < 60:
-        return f"{int(m)}:{s:0>4.1f}"
-    else:
-        h, m = divmod(m, 60)
-        return f"{int(h)}:{int(m):0>2}:{s:0>4.1f}"
-
-
 def best_tracks_graph(data):
-    # Data format: ['Track', 'Ideal Time', 'Car', 'My Time', 'Percentage', 'Fuel Usage', 'Rating']
     # Get track name and percentage of best for each track
-    filtered_data = [[row[0], round(row[4] - 100, 2)] for row in data if row[4] != '-']
+    filtered_data = [[row.track, round(row.percentage - 100, 2)] for row in data if row.percentage != '-']
     # Sort data by percentage ascending
     filtered_data.sort(key=lambda x: x[1])
     # Create lists for names, percentages and colors
@@ -112,14 +54,22 @@ def parse_race_results():
 
     leaderboard = file_contents['snapShot']['leaderBoardLines']
 
-    race_results = [['Place', 'Car Number', 'First Name', 'Last Name', 'Time', 'Lap count']]
-    for place, car in enumerate(leaderboard, start=1):
-        # TODO Extract car model and put into leaderboard
-        time = car['timing']['totalTime']
-        race_time = time_to_txt(time / 1000) if time < 90000000 else 'DNF'
-        car_results = [place, car['car']['raceNumber'], car['currentDriver']['firstName'],
-                       car['currentDriver']['lastName'], race_time, car['timing']['lapCount']]
+    # winner data
+    winner_time = leaderboard[0]['timing']['totalTime']
+    winner_lap_count = leaderboard[0]['timing']['lapCount']
 
-        race_results.append(car_results)
+    race_results = []
+    for place, row in enumerate(leaderboard, start=1):
+        # TODO Extract car model and put into leaderboard
+        car_number = row['car']['raceNumber']
+        first_name = row['currentDriver']['firstName']
+        last_name = row['currentDriver']['lastName']
+        race_time = row['timing']['totalTime']
+        lap_count = row['timing']['lapCount']
+
+        results_row = IndRaceResultRow(place, car_number, first_name, last_name,
+                                       race_time, lap_count, winner_time, winner_lap_count)
+
+        race_results.append(results_row)
 
     return race_results

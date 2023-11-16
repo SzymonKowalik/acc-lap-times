@@ -4,28 +4,30 @@
 {% endblock %}
 {% block content %}
 <h1>Lap Times</h1>
-<label for="hide_empty">
+<label for="hide_empty" class="unselectable">
     <input type="checkbox" id="hide_empty" name="hide_empty">Hide empty</input>
 </label>
-<table id="data_not_empty">
-{% for row in data %}
-<tr>
-    {% for col in row %}
-        <td>{{ col }}</td>
-    {% endfor %}
-</tr>
-{% endfor %}
-</table>
 
-<table id="data_empty" hidden>
-{% for row in data %}
-{% if row[3] != '-' %}
+<table>
 <tr>
-    {% for col in row %}
-        <td>{{ col }}</td>
-    {% endfor %}
+    <td>Track</td>
+    <td>Alien Time</td>
+    <td>My Time</td>
+    <td>Percentage</td>
+    <td>Fuel usage</td>
+    <td>Car</td>
+    <td>Stars</td>
 </tr>
-{% endif %}
+{% for row in data %}
+<tr {% if not row.is_set %}class="empty"{% endif %}>
+    <td>{{ row.track }}</td>
+    <td>{{ row.ideal_time_txt }}</td>
+    <td>{{ row.my_time_txt }}</td>
+    <td>{{ row.percentage }}{% if row.percentage != '-' %}%{% endif %}</td>
+    <td>{{ row.fuel_usage }}{% if row.fuel_usage != '-' %}l{% endif %}</td>
+    <td>{{ row.car }}</td>
+    <td>{{ row.stars }}</td>
+</tr>
 {% endfor %}
 </table>
 

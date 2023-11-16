@@ -2,11 +2,20 @@
 {% block content %}
 <h1>Race results</h1>
 <table>
+<tr>
+    <td>Place</td>
+    <td>Car Number</td>
+    <td>Driver</td>
+    <td>Total Time</td>
+    <td>Gap to 1st</td>
+</tr>
 {% for row in data %}
 <tr>
-    {% for col in row %}
-        <td>{{ col }}</td>
-    {% endfor %}
+    <td>{{ row.place }}</td>
+    <td>{{ row.car_number }}</td>
+    <td>{{ row.first_name }} {{ row.last_name }}</td>
+    <td>{{ row.race_time_txt }}</td>
+    <td>{{ row.gap_to_winner_txt }}</td>
 </tr>
 {% endfor %}
 </table>

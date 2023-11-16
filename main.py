@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from utils.data_processing import generate_all_data, best_tracks_graph, parse_race_results, time_to_txt
 import matplotlib.pyplot as plt
+from utils.data_processing import best_tracks_graph, parse_race_results, generate_lap_time_data
 
 app = Flask(__name__)
 LAP_DATA_PATH = 'data/lap_data.txt'
@@ -29,9 +29,8 @@ def fuel_calculator():
 
 @app.route('/lap_times', methods=["GET"])
 def lap_times():
-    raw_data, data = generate_all_data(LAP_DATA_PATH)
-    best_tracks_graph(raw_data)
-
+    data = generate_lap_time_data(LAP_DATA_PATH)
+    best_tracks_graph(data)
     return render_template('lap_times.html', data=data)
 
 
@@ -43,7 +42,6 @@ def race_results():
 
 # Run the Flask app when the script is executed
 if __name__ == '__main__':
-    print(time_to_txt(3752.3))
     # Configure matplotlib
     matplotlib_settings()
     # Run the Flask app in debug mode
