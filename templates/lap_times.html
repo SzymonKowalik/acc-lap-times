@@ -7,7 +7,23 @@
 <label for="hide_empty" class="unselectable">
     <input type="checkbox" id="hide_empty" name="hide_empty">Hide empty</input>
 </label>
-
+<form method="get">
+    <label>Sort by:</label>
+    <select name="sort_by">
+        <option>Sort by</option>
+        <option value="track">Track</option>
+        <option value="ideal_time_s">Alien Time</option>
+        <option value="my_time_s">My Time</option>
+        <option value="percentage">Percentage</option>
+        <option value="rating">Stars</option>
+    </select>
+    <select name="sort_direction">
+        <option>Direction</option>
+        <option value="0">Ascending</option>
+        <option value="1">Descending</option>
+    </select>
+    <button type="submit">Apply</button>
+</form>
 <table>
 <tr>
     <td>Track</td>
