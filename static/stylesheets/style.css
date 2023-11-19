@@ -51,6 +51,16 @@ table {
     width: 800px;
 }
 
+/* Lap table col widths */
+
+#lap_table_track {
+    width: 250px;
+}
+
+#lap_table_car {
+    width: 125px;
+}
+
 a {
     text-decoration: none;
     color: white;

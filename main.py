@@ -29,7 +29,6 @@ def fuel_calculator():
 
 @app.route('/lap_times', methods=["GET"])
 def lap_times():
-    # TODO Save state of Hide empty
     data = generate_lap_time_data(LAP_DATA_PATH)
     best_tracks_graph(data)
 
