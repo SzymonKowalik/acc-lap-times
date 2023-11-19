@@ -14,8 +14,11 @@
 {% for row in data %}
 <tr>
     <td>{{ row.place }}</td>
-    <td>{{ row.car_number }}</td>
-    <td>{{ row.first_name }} {{ row.last_name }}</td>
+    <td class="hover_img">
+     <a href="#">{{ row.car_number }}<span>
+     <img class="hover_img_size" src="{{ url_for('static', filename='images/race_lap_times/' + row.car_number|string + '.png') }}"/>
+     </span></a></td>
+    <td><div title="{{ row.show_lap_times_txt() }}">{{ row.first_name }} {{ row.last_name }}</div></td>
     <td>{{ row.car.manufacturer }}</td>
     <td>{{ row.car.group }}</td>
     <td>{{ row.race_time_txt }}</td>

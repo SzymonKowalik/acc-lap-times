@@ -53,6 +53,7 @@ def parse_race_results():
         file_contents = json.load(file)
 
     leaderboard = file_contents['snapShot']['leaderBoardLines']
+    all_lap_data = file_contents['laps']
 
     # winner data
     winner_time = leaderboard[0]['timing']['totalTime']
@@ -60,6 +61,7 @@ def parse_race_results():
 
     race_results = []
     for place, row in enumerate(leaderboard, start=1):
+        car_id = row['car']['carId']
         car_number = row['car']['raceNumber']
         team_name = row['car']['teamName']
         first_name = row['currentDriver']['firstName']
@@ -70,6 +72,16 @@ def parse_race_results():
         results_row = IndRaceResultRow(place, car_number, team_name, first_name, last_name,
                                        race_time, lap_count, winner_time, winner_lap_count, car_model)
 
+        # Add lap times
+        for lap_data in all_lap_data:
+            lap_car_id = lap_data['carId']
+            lap_time = lap_data['lapTime']
+
+            if car_id == lap_car_id:
+                results_row.add_lap_time(lap_time)
+
+        results_row.convert_to_txt_times()
+        results_row.generate_lap_times_graph()
         race_results.append(results_row)
 
     return race_results

@@ -15,6 +15,10 @@ def matplotlib_settings():
     plt.rcParams['xtick.color'] = 'white'
     plt.rcParams['ytick.color'] = 'white'
     plt.rcParams['axes.edgecolor'] = 'white'
+    plt.rcParams['text.color'] = 'white'
+    plt.rcParams['axes.labelcolor'] = 'white'
+    plt.rcParams['xtick.color'] = 'white'
+    plt.rcParams['ytick.color'] = 'white'
 
 
 @app.route('/')
