@@ -1,40 +1,38 @@
 function fuelCalculator() {
-    let race_h = parseFloat(document.getElementById('race_h').value);
-    let race_min = parseFloat(document.getElementById('race_min').value);
-    let lap_min = parseFloat(document.getElementById('lap_min').value);
-    let lap_sec = parseFloat(document.getElementById('lap_sec').value);
-    let fuel_per_lap = parseFloat(document.getElementById('fuel_per_lap').value);
-    let fuel_capacity = parseFloat(document.getElementById('fuel_capacity').value);
+    let raceH = parseFloat(document.getElementById('race_h').value);
+    let raceMin = parseFloat(document.getElementById('race_min').value);
+    let lapMin = parseFloat(document.getElementById('lap_min').value);
+    let lapSec = parseFloat(document.getElementById('lap_sec').value);
+    let fuelPerLap = parseFloat(document.getElementById('fuel_per_lap').value);
+    let fuelCapacity = parseFloat(document.getElementById('fuel_capacity').value);
 
-    let race_time = (race_h * 3600) + (race_min * 60);
-    let lap_time = (lap_min * 60) + lap_sec;
+    let raceTime = (raceH * 3600) + (raceMin * 60);
+    let lapTime = (lapMin * 60) + lapSec;
 
-    let laps = Math.ceil(race_time / lap_time);
-    let fuel_needed = laps * fuel_per_lap;
-    let fuel_safe = fuel_needed * 1.1;
+    let laps = Math.ceil(raceTime / lapTime);
+    let fuelNeeded = laps * fuelPerLap;
+    let fuelSafe = fuelNeeded * 1.15;
 
-    if (isNaN(fuel_capacity) || fuel_capacity <= 0) {fuel_capacity = Infinity};
+    if (isNaN(fuelCapacity) || fuelCapacity <= 0) {fuelCapacity = Infinity};
 
-    let stints = Math.ceil(fuel_needed / fuel_capacity);
-    console.log(fuel_capacity / fuel_needed, stints)
-    let last_stint = fuel_needed % fuel_capacity;
+    let stints = Math.ceil(fuelNeeded / fuelCapacity);
+    console.log(fuelCapacity / fuelNeeded, stints)
+    let lastStint = fuelNeeded % fuelCapacity;
 
-    if (fuel_needed) {
-        let total_laps_text = `Total laps: ${laps}.<br>`
-        let fuel_needed_text = `Fuel needed: ${fuel_needed.toFixed(1)} liters.<br>`;
-        let fuel_needed_safe_text = `Fuel needed (safe): ${fuel_safe.toFixed(1)} liters.<br>`;
+    if (fuelNeeded) {
+        let totalLapsText = `Total laps: ${laps}.<br>`
+        let fuelNeededText = `Fuel needed: ${fuelNeeded.toFixed(1)} liters.<br>`;
+        let fuelNeededSafeText = `Fuel needed (safe): ${fuelSafe.toFixed(1)} liters.<br>`;
 
         if (stints <= 1 || stints === Infinity) {
-            document.getElementById("result").innerHTML = `${total_laps_text}${fuel_needed_text}${fuel_needed_safe_text}`;
+            document.getElementById("result").innerHTML = `${totalLapsText}${fuelNeededText}${fuelNeededSafeText}`;
         } else {
-            let stints_text = `Total stints number: ${stints}.<br>`;
-            let last_stint_text = `Last stint fuel: ${last_stint.toFixed(1)}.<br>`;
+            let stintsText = `Total stints number: ${stints}.<br>`;
+            let lastStintText = `Last stint fuel: ${lastStint.toFixed(1)}.<br>`;
 
-            document.getElementById("result").innerHTML = `${total_laps_text}${fuel_needed_text}
-            ${fuel_needed_safe_text}<br>${stints_text}${last_stint_text}`;
-
+            document.getElementById("result").innerHTML = `${totalLapsText}${fuelNeededText}
+            ${fuelNeededSafeText}<br>${stintsText}${lastStintText}`;
         }
-
     } else {
         document.getElementById("result").innerHTML = `Enter correct data.`;
     }

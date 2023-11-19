@@ -1,4 +1,5 @@
 import utils.time_processing as tp
+from data.car_models import CAR_MODELS
 
 
 class TrackLapTimes:
@@ -32,10 +33,11 @@ class TrackLapTimes:
 
 
 class IndRaceResultRow:
-    def __init__(self, place, car_number, first_name, last_name,
-                 race_time, lap_count, winner_time, winner_lap_count):
+    def __init__(self, place, car_number, team_name, first_name, last_name,
+                 race_time, lap_count, winner_time, winner_lap_count, car_model):
         self.place = place
         self.car_number = car_number
+        self.team_name = team_name
         self.first_name = first_name
         self.last_name = last_name
         self.race_time_s = race_time / 1000
@@ -43,6 +45,7 @@ class IndRaceResultRow:
         self.lap_count = lap_count
         self.gap_to_winner_s = (race_time - winner_time) / 1000
         self.gap_to_winner_txt = self.gap_to_winner(winner_time, winner_lap_count)
+        self.car = CAR_MODELS[car_model]
 
     def race_time_validation(self):
         if self.race_time_s > (25 * 60 * 60):

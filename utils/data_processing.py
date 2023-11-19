@@ -1,7 +1,7 @@
 import json
 import matplotlib.pyplot as plt
 import os
-from .classes import IndRaceResultRow, TrackLapTimes
+from utils.classes import IndRaceResultRow, TrackLapTimes
 
 
 def generate_lap_time_data(file_path):
@@ -60,15 +60,15 @@ def parse_race_results():
 
     race_results = []
     for place, row in enumerate(leaderboard, start=1):
-        # TODO Extract car model and put into leaderboard
         car_number = row['car']['raceNumber']
+        team_name = row['car']['teamName']
         first_name = row['currentDriver']['firstName']
         last_name = row['currentDriver']['lastName']
         race_time = row['timing']['totalTime']
         lap_count = row['timing']['lapCount']
-
-        results_row = IndRaceResultRow(place, car_number, first_name, last_name,
-                                       race_time, lap_count, winner_time, winner_lap_count)
+        car_model = row['car']['carModel']
+        results_row = IndRaceResultRow(place, car_number, team_name, first_name, last_name,
+                                       race_time, lap_count, winner_time, winner_lap_count, car_model)
 
         race_results.append(results_row)
 

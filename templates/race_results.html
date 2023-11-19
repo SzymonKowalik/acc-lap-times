@@ -6,6 +6,8 @@
     <td>Place</td>
     <td>Car Number</td>
     <td>Driver</td>
+    <td>Manufacturer</td>
+    <td>Class</td>
     <td>Total Time</td>
     <td>Gap to 1st</td>
 </tr>
@@ -14,6 +16,8 @@
     <td>{{ row.place }}</td>
     <td>{{ row.car_number }}</td>
     <td>{{ row.first_name }} {{ row.last_name }}</td>
+    <td>{{ row.car.manufacturer }}</td>
+    <td>{{ row.car.group }}</td>
     <td>{{ row.race_time_txt }}</td>
     <td>{{ row.gap_to_winner_txt }}</td>
 </tr>
