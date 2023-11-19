@@ -1,0 +1,13 @@
+LFM Rookie Sprint	Daily, Every 1h	25 min	12min	09.10.2023	31.12.2023
+09.10.2023	15.10.2023	Nürburgring			
+16.10.2023	22.10.2023	Silverstone			
+23.10.2023	29.10.2023	Circuit de Catalunya			
+30.10.2023	05.11.2023	Zolder			
+06.11.2023	12.11.2023	Watkins Glen			
+13.11.2023	19.11.2023	Circuit de Paul Ricard			
+20.11.2023	26.11.2023	Autodromo Enzo e Dino Ferrari			
+27.11.2023	03.12.2023	Oulton Park			
+04.12.2023	10.12.2023	Zandvoort			
+11.12.2023	17.12.2023	Circuit de Spa Francorchamps			
+18.12.2023	24.12.2023	Suzuka Circuit			
+25.12.2023	31.12.2023	Kyalami			

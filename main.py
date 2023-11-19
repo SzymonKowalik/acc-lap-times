@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import matplotlib.pyplot as plt
 from utils.data_processing import best_tracks_graph, parse_race_results, generate_lap_time_data
+from utils.series_calendar import get_all_series
 
 app = Flask(__name__)
 LAP_DATA_PATH = 'data/lap_data.txt'
@@ -60,6 +61,12 @@ def lap_times():
 def race_results():
     race_result = parse_race_results()
     return render_template('race_results.html', data=race_result)
+
+
+@app.route('/racing_calendar')
+def racing_calendar():
+    series = get_all_series()
+    return render_template('racing_calendar.html', data=series)
 
 
 # Run the Flask app when the script is executed

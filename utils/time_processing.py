@@ -1,4 +1,9 @@
 import re
+from datetime import datetime as dt
+
+
+def to_date(text):
+    return dt.strptime(text, '%d.%m.%Y').date()
 
 
 def txt_to_time(text):

@@ -1,5 +1,5 @@
 import utils.time_processing as tp
-from data.car_models import CAR_MODELS
+from utils.car_models import CAR_MODELS
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -107,6 +107,6 @@ class IndRaceResultRow:
         # Plot and save
         plt.grid(color='#444')
         plt.plot(x, y, c='orange')
-        plt.savefig(f"static/images/race_lap_times/{self.car_number}.png", dpi=150)
+        plt.savefig(f"static/images/race_lap_times/{self.car_number}.png", dpi=100)
         plt.clf()
         plt.close()
