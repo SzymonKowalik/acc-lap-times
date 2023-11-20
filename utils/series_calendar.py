@@ -1,5 +1,6 @@
 from datetime import datetime as dt
 import utils.time_processing as tp
+from datetime import timedelta
 import os
 
 
@@ -39,6 +40,32 @@ class Week:
         self.number = number
         self.track = track
 
+        self.start_times = []
+        self.upcoming_race = None
+
+    def generate_daily_start_times(self, first_race, interval, repeats):
+        self.start_times = []
+        race_time = dt.strptime(first_race, '%H:%M')
+        index = 1
+        while (index <= repeats or repeats == -1) and race_time < dt.strptime('23:59', '%H:%M'):
+            self.start_times.append(race_time.time())
+            race_time += timedelta(hours=interval)
+            index += 1
+
+        if self.start_times:
+            self.set_upcoming_race()
+
+    def set_upcoming_race(self):
+        current_datetime = dt.now()
+        if self.start_date <= current_datetime.date() <= self.end_date:
+            if len(self.start_times) == 1:
+                self.upcoming_race = self.start_times[0]
+            else:
+                for race_time in self.start_times:
+                    if current_datetime.time() < race_time:
+                        self.upcoming_race = race_time
+                        break
+
 
 def create_series(filepath):
     with open(filepath, 'r', encoding='UTF-8') as file:
@@ -50,10 +77,11 @@ def create_series(filepath):
                 end_date = tp.to_date(end_date)
                 cur_series = Series(name, description, race_time, quali_time, start_date, end_date)
             else:
-                start_date, end_date, track = values
+                start_date, end_date, track, start_time, interval, repeats = values
                 start_date = tp.to_date(start_date)
                 end_date = tp.to_date(end_date)
                 cur_week = Week(start_date, end_date, i, track)
+                cur_week.generate_daily_start_times(start_time, float(interval), int(repeats))
                 cur_series.add_week(cur_week)
 
     cur_series.is_active()

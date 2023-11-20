@@ -6,7 +6,9 @@
     <h3>{{ series.name }}</h3>
     <i>{{ series.description }} - From: {{ series.start_date }} To: {{ series.end_date }}<br>
     Current week {{ series.current_week.number }} on {{ series.current_week.track }}</i>
-    <div style="margin-bottom: 30px;">Race Time: {{ series.race_time }} - Quali Time: {{ series.quali_time }}</div>
+    <div style="margin-bottom: 30px;">Race Time: {{ series.race_time }} - Quali Time: {{ series.quali_time }}<br>
+    Upcoming race: {{ series.current_week.upcoming_race }}</div>
+
 {% endif %}
 {% endfor %}
 </div>

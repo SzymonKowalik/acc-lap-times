@@ -1,37 +1,9 @@
-import utils.time_processing as tp
 from utils.car_models import CAR_MODELS
+import utils.time_processing as tp
 import matplotlib.pyplot as plt
 import numpy as np
-
-
-class TrackLapTimes:
-    def __init__(self, track, car, ideal_time, my_time, fuel_usage, rating):
-        self.track = track
-        self.car = car
-        self.ideal_time_s = tp.txt_to_time(ideal_time)
-        self.ideal_time_txt = ideal_time
-        self.my_time_s = tp.txt_to_time(my_time)
-        self.my_time_txt = my_time
-        self.percentage = self.calculate_percentage()
-        self.fuel_usage = fuel_usage
-        self.rating = rating
-        self.stars = self.calculate_stars()
-        self.is_set = self.is_set()
-
-    def calculate_percentage(self):
-        if self.my_time_s != '-':
-            return round(self.my_time_s / self.ideal_time_s * 100, 2)
-        else:
-            return '-'
-
-    def calculate_stars(self):
-        if self.rating != '-' and 0 <= int(self.rating) <= 5:
-            return '★' * int(self.rating) + '☆' * (5 - int(self.rating))
-        else:
-            return '-'
-
-    def is_set(self):
-        return self.my_time_s != '-'
+import json
+import os
 
 
 class IndRaceResultRow:
@@ -110,3 +82,43 @@ class IndRaceResultRow:
         plt.savefig(f"static/images/race_lap_times/{self.car_number}.png", dpi=100)
         plt.clf()
         plt.close()
+
+
+def parse_race_results():
+    file_path = os.path.expanduser('~/Documents/Assetto Corsa Competizione/Results/race.json')
+    with open(file_path, 'r', encoding='utf-16-le') as file:
+        file_contents = json.load(file)
+
+    leaderboard = file_contents['snapShot']['leaderBoardLines']
+    all_lap_data = file_contents['laps']
+
+    # winner data
+    winner_time = leaderboard[0]['timing']['totalTime']
+    winner_lap_count = leaderboard[0]['timing']['lapCount']
+
+    race_results = []
+    for place, row in enumerate(leaderboard, start=1):
+        car_id = row['car']['carId']
+        car_number = row['car']['raceNumber']
+        team_name = row['car']['teamName']
+        first_name = row['currentDriver']['firstName']
+        last_name = row['currentDriver']['lastName']
+        race_time = row['timing']['totalTime']
+        lap_count = row['timing']['lapCount']
+        car_model = row['car']['carModel']
+        results_row = IndRaceResultRow(place, car_number, team_name, first_name, last_name,
+                                       race_time, lap_count, winner_time, winner_lap_count, car_model)
+
+        # Add lap times
+        for lap_data in all_lap_data:
+            lap_car_id = lap_data['carId']
+            lap_time = lap_data['lapTime']
+
+            if car_id == lap_car_id:
+                results_row.add_lap_time(lap_time)
+
+        results_row.convert_to_txt_times()
+        results_row.generate_lap_times_graph()
+        race_results.append(results_row)
+
+    return race_results
