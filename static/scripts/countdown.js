@@ -31,7 +31,7 @@ function updateTime() {
         let currentTimeSeconds = timeToSeconds(currentTimeParts);
         let timeDiff = raceTimeSeconds - currentTimeSeconds;
         let timeText = secondsToTime(timeDiff);
-        raceObject.divObject.textContent = `Upcoming race in ${timeText}`;
+        raceObject.divObject.textContent = timeText;
     })
 }
 

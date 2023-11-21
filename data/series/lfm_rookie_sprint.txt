@@ -1,4 +1,4 @@
-LFM Rookie Sprint	Daily, Every 1h	25 min	12min	09.10.2023	31.12.2023
+LFM Rookie Sprint	Daily Races - Every 1 hour	25 min	12 min	09.10.2023	31.12.2023
 09.10.2023	15.10.2023	Nürburgring	00:16	1	-1			
 16.10.2023	22.10.2023	Silverstone	00:16	1	-1			
 23.10.2023	29.10.2023	Circuit de Catalunya	00:16	1	-1			

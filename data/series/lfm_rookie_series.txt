@@ -1,4 +1,4 @@
-LFM Rookie Series	Daily, Every 2h	45 min	15min	09.10.2023	31.12.2023
+LFM Rookie Series	Daily Races - Every 2 hours	45 min	15 min	09.10.2023	31.12.2023
 09.10.2023	15.10.2023	Watkins Glen	01:01	2	-1
 16.10.2023	22.10.2023	Misano	01:01	2	-1
 23.10.2023	29.10.2023	Suzuka Circuit	01:01	2	-1

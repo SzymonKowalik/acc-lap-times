@@ -1,19 +1,33 @@
 {% extends "base.html" %}
 {% block head %}
 <script src="{{ url_for('static', filename='scripts/countdown.js' ) }}" defer></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/series_card.css') }}">
 {% endblock %}
 {% block content %}
 <h1>Racing Calendar</h1>
 {% for series in data %}
 {%  if series.active %}
-    <h3>{{ series.name }}</h3>
-    <i>{{ series.description }} - From: {{ series.start_date }} To: {{ series.end_date }}<br>
-    Current week {{ series.current_week.number }} on {{ series.current_week.track }}</i>
-    <div style="margin-bottom: 30px;">
-        Race Time: {{ series.race_time }} - Quali Time: {{ series.quali_time }}<br>
-        <div class="race_time">{{ series.current_week.upcoming_race }}</div>
+<div class="series-container">
+    <div class="series-title">{{ series.name }}</div>
+    <hr>
+    <div class="series-description">
+        {{ series.description }}<br>{{ series.start_date }} - {{ series.end_date }}
     </div>
-
+    <div class="series-duration">
+        <div class="series-duration-label">Race</div>
+        <div class="series-duration-value l">{{ series.race_time }}</div>
+        <div class="series-duration-value r">{{ series.quali_time }}</div>
+        <div class="series-duration-label">Quali</div>
+    </div>
+    <div class="series-info">
+        <div class="series-info-label">{{ series.current_week.track }}</div>
+        <div class="series-info-value">Week {{ series.current_week.number}}</div>
+    </div>
+    <div class="series-info">
+        <div class="series-info-label">Upcoming race in</div>
+        <div class="series-info-value race_time">{{ series.current_week.upcoming_race }}</div>
+    </div>
+</div>
 {% endif %}
 {% endfor %}
 </div>
