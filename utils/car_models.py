@@ -5,6 +5,7 @@ class Car:
         self.model = model
         self.year = year
         self.group = group
+        self.manufacturer_logo = f"logos/{manufacturer}.png"
 
 
 cars = [

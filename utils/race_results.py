@@ -51,7 +51,6 @@ class IndRaceResultRow:
             text += f"{lap}: {time}\n"
         return text
 
-    # TODO Optimization
     def generate_lap_times_graph(self):
         x, y = [], []
         for lap, time in enumerate(self.lap_times_s, start=1):
@@ -118,7 +117,8 @@ def parse_race_results():
                 results_row.add_lap_time(lap_time)
 
         results_row.convert_to_txt_times()
-        results_row.generate_lap_times_graph()
+        # Currently not used in new results design
+        # results_row.generate_lap_times_graph()
         race_results.append(results_row)
 
     return race_results

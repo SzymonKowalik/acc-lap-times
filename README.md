@@ -12,6 +12,8 @@
 2.  Run the application:
 
      `python main.py`
-    
 
 3. You can edit data in `data/lap_data.txt` file. Columns are separated by `\t`
+
+### Fonts used:
+* Inter - https://github.com/rsms/inter/tree/master

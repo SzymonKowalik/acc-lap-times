@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "Inter Semi Bold";
+  src: url('../fonts/inter-semibold.woff2');
+}
+
+:root {
+    --red: #F80000;
+    --black: #1C1C1C;
+    --dark-gray: #292929;
+    --light-gray: #BABABA;
+    --gt3: #FF5C00;
+    --gt4: #000AFF;
+}
+
+table, tr, td {
+    border: none;
+}
+
+.results-table {
+    font-family: "Inter Semi Bold", Arial;
+    font-size: 18px;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    width: 720px;
+}
+
+.results-table > tr {
+    height: 35px;
+}
+
+.results-place {
+    width: 41px;
+    background: var(--red);
+    text-align: center;
+}
+
+.results-driver {
+    width: 311px;
+    background: var(--black);
+    text-align: left;
+}
+
+.results-class-header {
+    width: 102px;
+    background: white;
+    color: black;
+    text-align: center;
+}
+
+.results-manufacturer {
+    width: 40px;
+    background: white;
+    text-align: center;
+    padding: 0;
+}
+
+.results-class {
+    width: 62px;
+    background: black;
+    text-align: center;
+}
+
+.results-total {
+    width: 126px;
+    text-align: center;
+    background: var(--black);
+}
+
+.results-gap {
+    width: 126px;
+    background: white;
+    text-align: center;
+    color: black;
+}
+
+.results-logo {
+    width: 30px;
+}
+
+.GT3 {
+    border-right: 5px solid var(--gt3);
+}
+
+.GT4 {
+    border-right: 5px solid var(--gt4);
+}
+
+.lap-times-container {
+    background: var(--black);
+    padding: 0;
+}
+
+.lap-times-table {
+    background: var(--black);
+    color: var(--light-gray);
+    width: 700px;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.lap-time-box {
+    background: var(--dark-gray);
+    padding: 5px;
+    width: 80px;
+    height: 26px;
+    text-align: center;
+}
