@@ -1,13 +1,13 @@
-LFM Rookie Series	Daily Races - Every 2 hours	45 min	15 min	09.10.2023	31.12.2023
-09.10.2023	15.10.2023	Watkins Glen	01:01	2	-1
-16.10.2023	22.10.2023	Misano	01:01	2	-1
-23.10.2023	29.10.2023	Suzuka Circuit	01:01	2	-1
-30.10.2023	05.11.2023	Kyalami	01:01	2	-1
-06.11.2023	12.11.2023	Brands Hatch Circuit	01:01	2	-1
-13.11.2023	19.11.2023	Autodromo Nazionale di Monza	01:01	2	-1
-20.11.2023	26.11.2023	Mount Panorama Circuit	01:01	2	-1
-27.11.2023	03.12.2023	Donington Park	01:01	2	-1
-04.12.2023	10.12.2023	Circuit de Paul Ricard	01:01	2	-1
-11.12.2023	17.12.2023	Autodromo Enzo e Dino Ferrari	01:01	2	-1
-18.12.2023	24.12.2023	Zolder	01:01	2	-1
-25.12.2023	31.12.2023	Circuit de Spa Francorchamps	01:01	2	-1
+LFM Rookie Series	Daily Races - Every 2 hours	https://lowfuelmotorsport.com/seasonsv2/gt3-rookie-s12/upcoming	45 min	15 min	09.10.2023	31.12.2023
+09.10.2023	15.10.2023	Watkins Glen	01:01	2	-1	
+16.10.2023	22.10.2023	Misano	01:01	2	-1	
+23.10.2023	29.10.2023	Suzuka Circuit	01:01	2	-1	
+30.10.2023	05.11.2023	Kyalami	01:01	2	-1	
+06.11.2023	12.11.2023	Brands Hatch Circuit	01:01	2	-1	
+13.11.2023	19.11.2023	Autodromo Nazionale di Monza	01:01	2	-1	
+20.11.2023	26.11.2023	Mount Panorama Circuit	01:01	2	-1	
+27.11.2023	03.12.2023	Donington Park	01:01	2	-1	
+04.12.2023	10.12.2023	Circuit de Paul Ricard	01:01	2	-1	
+11.12.2023	17.12.2023	Autodromo Enzo e Dino Ferrari	01:01	2	-1	
+18.12.2023	24.12.2023	Zolder	01:01	2	-1	
+25.12.2023	31.12.2023	Circuit de Spa Francorchamps	01:01	2	-1	

@@ -21,27 +21,15 @@ function secondsToTime(fromSeconds) {
 }
 
 function updateTime() {
-    raceTimesSaved.forEach(raceObject => {
-
-        const raceTimeParts = raceObject.timeText.split(":");
-        let now = new Date();
-        const currentTimeParts = [now.getHours(), now.getMinutes(), now.getSeconds()];
-        let raceTimeSeconds = timeToSeconds(raceTimeParts);
-
-        let currentTimeSeconds = timeToSeconds(currentTimeParts);
-        let timeDiff = raceTimeSeconds - currentTimeSeconds;
-        let timeText = secondsToTime(timeDiff);
-        raceObject.divObject.textContent = timeText;
+    raceTimes.forEach(raceTime => {
+        const raceTimeParts = raceTime.textContent.split(":");
+        if (raceTimeParts.length != 1) {
+            let raceTimeSeconds = timeToSeconds(raceTimeParts) - 1;
+            raceTime.textContent = (raceTimeSeconds <= 0) ? 'Started' :  secondsToTime(raceTimeSeconds);
+        }
     })
 }
 
-let raceTimesSaved = [];
-raceTimes.forEach(raceTime => {
-    let raceObject = {};
-    raceObject.divObject = raceTime;
-    raceObject.timeText = raceTime.textContent;
-    raceTimesSaved.push(raceObject);
-});
-
 updateTime();
 setInterval(updateTime, 1000);
+

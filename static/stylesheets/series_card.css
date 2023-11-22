@@ -57,16 +57,16 @@ hr {
     width: 500px;
     height: 30px;
     display: grid;
+    text-align: center;
     grid-template-columns: 350px 150px;
     margin: 5px;
 }
 
 .series-info-label {
-    text-align: center;
+
 }
 
 .series-info-value {
     background: white;
     color: black;
-    text-align: center;
 }

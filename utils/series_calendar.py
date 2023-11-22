@@ -1,13 +1,14 @@
 from datetime import datetime as dt
 import utils.time_processing as tp
-from datetime import timedelta
+from datetime import timedelta, date
 import os
 
 
 class Series:
-    def __init__(self, name, description, race_time, quali_time, start_date, end_date):
+    def __init__(self, name, description, website, race_time, quali_time, start_date, end_date):
         self.name = name
         self.description = description
+        self.website = website
         self.race_time = race_time
         self.quali_time = quali_time
         self.start_date = start_date
@@ -32,6 +33,12 @@ class Series:
             if week.start_date <= current_date <= week.end_date:
                 self.current_week = week
 
+    def mid_season_brake_remaining(self):
+        for week in self.weeks:
+            if week.start_date > dt.now().date():
+                remaining = week.end_date - week.start_date
+                # return remaining.strftime("%d")
+                return f"{remaining.days} Days Left"
 
 class Week:
     def __init__(self, start_date, end_date, number, track):
@@ -42,6 +49,7 @@ class Week:
 
         self.start_times = []
         self.upcoming_race = None
+        self.upcoming_race_in = None
 
     def generate_daily_start_times(self, first_race, interval, repeats):
         self.start_times = []
@@ -65,17 +73,37 @@ class Week:
                     if current_datetime.time() < race_time:
                         self.upcoming_race = race_time
                         break
+                else:
+                    self.upcoming_race = self.start_times[0]
+            self.set_countdown_start(current_datetime)
+
+    def set_countdown_start(self, current_datetime):
+        tomorrow_date = current_datetime.date() + timedelta(days=1)
+        current_time = current_datetime.time()
+        is_next_day = True
+
+        time_diff = dt.combine(date.min, self.upcoming_race) - dt.combine(date.min, current_time)
+        # Check if next race is tomorrow, then add 1 day
+        if time_diff <= timedelta(0):
+            is_next_day = True
+            next_day = dt(1, 1, 2, 0, 0, 0, 0)
+            time_diff = dt.combine(next_day, self.upcoming_race) - dt.combine(date.min, current_time)
+
+        if is_next_day and tomorrow_date <= self.end_date:
+            self.upcoming_race_in = str(time_diff).split('.', maxsplit=1)[0]
+        else:
+            self.upcoming_race_in = 'Next week'
 
 
 def create_series(filepath):
-    with open(filepath, 'r', encoding='UTF-8') as file:
+    with open(filepath, 'r', encoding='UTF-8', errors='replace') as file:
         for i, values in enumerate(file):
             values = values.strip().split('\t')
             if i == 0:
-                name, description, race_time, quali_time, start_date, end_date = values
+                name, description, website, race_time, quali_time, start_date, end_date = values
                 start_date = tp.to_date(start_date)
                 end_date = tp.to_date(end_date)
-                cur_series = Series(name, description, race_time, quali_time, start_date, end_date)
+                cur_series = Series(name, description, website, race_time, quali_time, start_date, end_date)
             else:
                 start_date, end_date, track, start_time, interval, repeats = values
                 start_date = tp.to_date(start_date)
