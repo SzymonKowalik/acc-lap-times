@@ -1,7 +1,21 @@
+@font-face {
+  font-family: "Inter Semi Bold";
+  src: url('../fonts/inter-semibold.woff2');
+}
+
+:root {
+    --red: #F80000;
+    --black: #1C1C1C;
+    --dark-gray: #292929;
+    --light-gray: #BABABA;
+    --gt3: #FF5C00;
+    --gt4: #000AFF;
+}
+
 body {
-    background-color: #222;
+    background-color: var(--black);
     color: white;
-    font-family: Bahnschrift;
+    font-family: "Inter Semi Bold";
     margin: 10px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -41,26 +55,6 @@ h1, h2, h3, h4 {
     margin: 15px;
 }
 
-table, td, tr {
-    padding: 5px 10px;
-    border: solid 1px #444;
-}
-
-table {
-    border-collapse: collapse;
-    width: 800px;
-}
-
-/* Lap table col widths */
-
-#lap_table_track {
-    width: 250px;
-}
-
-#lap_table_car {
-    width: 125px;
-}
-
 a {
     text-decoration: none;
     color: white;
@@ -96,19 +90,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-button {
-    background-color: #333;
-    color: white;
-    border: none;
-    width: 100px;
-    text-align: center;
-    border-radius: 5px 5px;
-}
 
-button:hover {
-    background-color: #3A3;
-    color: #222;
-}
 
 input[type=checkbox] {
     accent-color: #3A3;
@@ -126,9 +108,3 @@ img {
     -ms-user-select: none;
     user-select: none;
 }
-
-/* Image on hover */
-.hover_img a { position:relative; }
-.hover_img a span { position:absolute; display:none; z-index:99; }
-.hover_img a:hover span { display:block; overflow: visible; }
-.hover_img_size { width: 600px; }

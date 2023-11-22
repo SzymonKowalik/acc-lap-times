@@ -40,6 +40,7 @@ def lap_times():
 
     sort_by = request.args.get('sort_by', default='track')
     sort_direction = int(request.args.get('sort_direction', default=0))
+    hide_empty = request.args.get('hide_empty', default='hide')
 
     valid_rows = []
     remaining_rows = []
@@ -55,7 +56,7 @@ def lap_times():
 
     data = valid_rows
 
-    return render_template('lap_times.html', data=data)
+    return render_template('lap_times.html', data=data, hide_empty=hide_empty)
 
 
 @app.route('/race_results')

@@ -1,21 +1,5 @@
-@font-face {
-  font-family: "Inter Semi Bold";
-  src: url('../fonts/inter-semibold.woff2');
-}
-
-:root {
-    --red: #F80000;
-    --black: #1C1C1C;
-    --dark-gray: #292929;
-    --light-gray: #BABABA;
-    --gt3: #FF5C00;
-    --gt4: #000AFF;
-}
-
 .series-container {
-    font-family: "Inter Semi Bold";
     font-size: 18px;
-    background: var(--black);
     width: 540px;
     height: 300px;
     margin-bottom: 20px;
@@ -34,7 +18,7 @@ hr {
     height: 4px;
     width: 500px;
     opacity: 1;
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 5px;
 }
 

@@ -1,11 +1,12 @@
 import utils.time_processing as tp
 import matplotlib.pyplot as plt
+from utils.car_models import CAR_MODELS
 
 
 class TrackLapTimes:
-    def __init__(self, track, car, ideal_time, my_time, fuel_usage, rating):
+    def __init__(self, track, car_id, ideal_time, my_time, fuel_usage, rating):
         self.track = track
-        self.car = car
+        self.car = self.assign_car_model(car_id)
         self.ideal_time_s = tp.txt_to_time(ideal_time)
         self.ideal_time_txt = ideal_time
         self.my_time_s = tp.txt_to_time(my_time)
@@ -31,6 +32,13 @@ class TrackLapTimes:
     def is_set(self):
         return self.my_time_s != '-'
 
+    @staticmethod
+    def assign_car_model(car_id):
+        try:
+            return CAR_MODELS[int(car_id)]
+        except ValueError:
+            return ''
+
 
 def generate_lap_time_data(file_path):
     with open(file_path, 'r') as file:
@@ -38,9 +46,9 @@ def generate_lap_time_data(file_path):
         lines = file.readlines()
         # Format rest of the rows and count percentage
         for row in lines[1:]:
-            track, ideal_time, car, my_time, fuel_usage, rating = row.strip().split('\t')
+            track, ideal_time, car_id, my_time, fuel_usage, rating = row.strip().split('\t')
 
-            lap_time_row = TrackLapTimes(track, car, ideal_time, my_time, fuel_usage, rating)
+            lap_time_row = TrackLapTimes(track, car_id, ideal_time, my_time, fuel_usage, rating)
             data.append(lap_time_row)
 
         return data

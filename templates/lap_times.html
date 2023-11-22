@@ -1,52 +1,66 @@
 {% extends "base.html" %}
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/lap_times_table.css') }}">
 <script src="{{ url_for('static', filename='scripts/modify_lap_times_table.js' ) }}" defer></script>
 {% endblock %}
 {% block content %}
-<h1>Lap Times</h1>
 
-<form method="get">
-    <label for="hide_empty" class="unselectable">
-        <input type="checkbox" id="hide_empty" name="hide_empty">Hide empty</input>
-    </label>
-    <br>
-    <label>Sort by:</label>
-    <select name="sort_by" id="sort_by">
-        <option value="track">Track</option>
-        <option value="ideal_time_s">Alien Time</option>
-        <option value="my_time_s">My Time</option>
-        <option value="percentage">Percentage</option>
-        <option value="rating">Stars</option>
-    </select>
-    <select name="sort_direction" id="sort_direction">
-        <option value="0">Ascending</option>
-        <option value="1">Descending</option>
-    </select>
-    <button type="submit">Apply</button>
+<form method="get" class="form-container">
+    <div class="form-left">Best Lap Times</div>
+    <div class="form-right">
+        <div class="form-right-top">
+            <div class="form-right-top-1">
+                Sort and Filter
+            </div>
+            <button type="submit" class="form-right-top-button">
+                Apply
+            </button>
+        </div>
+        <div class="form-right-bottom">
+            <select class="form-right-bottom-select" id="hide_empty" name="hide_empty">
+                <option value="hide">Hide Empty</option>
+                <option value="show">Show Empty</option>
+            </select>
+            <select class="form-right-bottom-select" name="sort_by" id="sort_by">
+                <option value="track">Track</option>
+                <option value="ideal_time_s">Alien Time</option>
+                <option value="my_time_s">My Time</option>
+                <option value="percentage">Percentage</option>
+                <option value="rating">Stars</option>
+            </select>
+            <select class="form-right-bottom-select" name="sort_direction" id="sort_direction">
+                <option value="0">Ascending</option>
+                <option value="1">Descending</option>
+            </select>
+        </div>
+    </div>
 </form>
-<table>
+
+<table class="lap-times-table">
 <tr>
-    <td id="lap_table_track">Track</td>
-    <td>Alien Time</td>
-    <td>My Time</td>
-    <td>Percentage</td>
-    <td>Fuel usage</td>
-    <td id="lap_table_car">Car</td>
-    <td>Stars</td>
+    <td class="lap-times-track-header">Track</td>
+    <td class="lap-times-alien">Alien Time</td>
+    <td class="lap-times-my">My Time</td>
+    <td class="lap-times-perc">Percentage</td>
+    <td class="lap-times-fuel">Fuel</td>
+    <td class="lap-times-logo"></td>
 </tr>
 {% for row in data %}
-<tr {% if not row.is_set %}class="empty"{% endif %}>
-    <td>{{ row.track }}</td>
-    <td>{{ row.ideal_time_txt }}</td>
-    <td>{{ row.my_time_txt }}</td>
-    <td>{{ row.percentage }}{% if row.percentage != '-' %}%{% endif %}</td>
-    <td>{{ row.fuel_usage }}{% if row.fuel_usage != '-' %}l{% endif %}</td>
-    <td>{{ row.car }}</td>
-    <td>{{ row.stars }}</td>
+<tr {% if hide_empty=="hide" and row.my_time_txt=='-' %}hidden{% endif %}>
+    <td class="lap-times-track">{{ row.track }}</td>
+    <td class="lap-times-alien">{{ row.ideal_time_txt }}</td>
+    <td class="lap-times-my">{{ row.my_time_txt }}</td>
+    <td class="lap-times-perc">{{ row.percentage }}{% if row.percentage != '-' %}%{% endif %}</td>
+    <td class="lap-times-fuel">{{ row.fuel_usage }}{% if row.fuel_usage != '-' %}l{% endif %}</td>
+    <td class="lap-times-logo">
+        {% if row.car %}
+        <img src="{{ url_for('static', filename=row.car.manufacturer_logo) }}">
+        {% endif %}
+    </td>
 </tr>
 {% endfor %}
 </table>
-
-<h2>Best tracks plot</h2>
-<img src="{{ url_for('static', filename='images/percentage.png' ) }}">
+<!-- TODO Update tracks plot -->
+<!--<h2>Best tracks plot</h2>-->
+<!--<img src="{{ url_for('static', filename='images/percentage.png' ) }}">-->
 {% endblock %}

@@ -1,0 +1,129 @@
+.lap-times-table {
+    width: 870px;
+    font-family: "Inter Semi Bold";
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    border: None;
+    text-align: center;
+}
+
+.form-container {
+    text-align: center;
+    width: 870px;
+    height: 70px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.form-left {
+    background: var(--dark-gray);
+    color: white;
+    font-size: 32px;
+    line-height: 70px;
+}
+
+.form-right {
+    background: var(--dark-gray);
+    color: white;
+    font-size: 18px;
+    line-height: 35px;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-auto-flow: column;
+}
+
+.form-right-top {
+    display: grid;
+    grid-template-columns: 67% 33%;
+}
+
+.form-right-top-1 {
+    background: var(--red);
+}
+
+.form-right-top-button {
+    background: white;
+    border: none;
+}
+
+.form-right-top-button:hover {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+.form-right-bottom {
+    background: var(--dark-gray);
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+
+.form-right-bottom-select {
+    background: var(--dark-gray);
+    color: white;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+.form-right-bottom-select > option {
+    font-family: Bahnschrift;
+}
+
+.form-right-bottom-select > option:hover {
+    color: var(--red);
+}
+
+tr {
+    height: 35px;
+}
+
+table, tr, td {
+    border: none;
+}
+
+.lap-times-track-header {
+    width: 300px;
+    background: white;
+    color: black;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.lap-times-track {
+    background: var(--red);
+    text-align: left;
+    padding-left: 10px;
+}
+
+.lap-times-alien {
+    width: 130px;
+    background: var(--dark-gray);
+}
+
+.lap-times-my {
+    width: 130px;
+    background: white;
+    color: black;
+}
+
+.lap-times-perc {
+    width: 130px;
+    background: var(--dark-gray);
+}
+
+.lap-times-fuel {
+    width: 130px;
+    background: var(--dark-gray);
+    border-left: 5px solid white;
+}
+
+.lap-times-logo {
+    width: 40px;
+    background: white;
+}
+
+.lap-times-logo > img {
+    width: 24px;
+}
