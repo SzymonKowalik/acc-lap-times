@@ -1,0 +1,110 @@
+.calc-form-container {
+    margin: 30px 0;
+}
+
+.calc-header {
+    width: 600px;
+    height: 35px;
+    line-height: 35px;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    background: var(--red);
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.calc-title {}
+
+.calc-track {
+    background: var(--dark-gray);
+}
+
+.calc-box-group {
+    display: flex;
+    margin: 0;
+}
+.calc-box-group > div {
+    margin: 5px 10px 5px 0;
+}
+
+.calc-form-box > div {
+    width: 295px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.calc-form-title {
+    background: white;
+    color: var(--dark-gray);
+}
+
+.calc-form-input {
+    background: var(--dark-gray);
+    color: white;
+}
+
+.calc-submit {
+    background: white;
+    color: var(--dark-gray);
+    width: 600px;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.calc-submit:hover {
+    background: var(--dark-gray);
+    color: white;
+    cursor: pointer;
+}
+
+input[type="Number"] {
+    background: var(--dark-gray);
+    color: white;
+    border: none;
+    text-align: center;
+    width: 140px;
+}
+
+input[type="Number"].to-right {text-align: right;}
+input[type="Number"].to-left {text-align: left;}
+
+textarea:focus, input:focus {
+    outline: none;
+}
+
+/* Turn off input arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.calc-result-box {
+    width: 600px;
+    height: 35px;
+    line-height: 35px;
+    display: grid;
+    grid-template-columns: 66% 34%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.calc-result-title {
+    background: white;
+    color: var(--dark-gray)
+}
+
+.calc-result-info {
+    background: var(--dark-gray);
+    color: white;
+}

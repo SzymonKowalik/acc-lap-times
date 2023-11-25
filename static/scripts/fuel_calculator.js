@@ -1,3 +1,5 @@
+document.querySelector(".calc-submit").addEventListener('click', fuelCalculator);
+
 function fuelCalculator() {
     let raceH = parseFloat(document.getElementById('race_h').value);
     let raceMin = parseFloat(document.getElementById('race_min').value);
@@ -13,28 +15,45 @@ function fuelCalculator() {
     let fuelNeeded = laps * fuelPerLap;
     let fuelSafe = fuelNeeded * 1.15;
 
-    if (isNaN(fuelCapacity) || fuelCapacity <= 0) {fuelCapacity = Infinity};
-
-    let stints = Math.ceil(fuelNeeded / fuelCapacity);
-    console.log(fuelCapacity / fuelNeeded, stints)
-    let lastStint = fuelNeeded % fuelCapacity;
-
-    if (fuelNeeded) {
-        let totalLapsText = `Total laps: ${laps}.<br>`
-        let fuelNeededText = `Fuel needed: ${fuelNeeded.toFixed(1)} liters.<br>`;
-        let fuelNeededSafeText = `Fuel needed (safe): ${fuelSafe.toFixed(1)} liters.<br>`;
-
-        if (stints <= 1 || stints === Infinity) {
-            document.getElementById("result").innerHTML = `${totalLapsText}${fuelNeededText}${fuelNeededSafeText}`;
-        } else {
-            let stintsText = `Total stints number: ${stints}.<br>`;
-            let lastStintText = `Last stint fuel: ${lastStint.toFixed(1)}.<br>`;
-
-            document.getElementById("result").innerHTML = `${totalLapsText}${fuelNeededText}
-            ${fuelNeededSafeText}<br>${stintsText}${lastStintText}`;
-        }
-    } else {
-        document.getElementById("result").innerHTML = `Enter correct data.`;
+    if (isNaN(fuelCapacity) || fuelCapacity <= 0) {
+        fuelCapacity = Infinity
     }
 
+    let stints = Math.ceil(fuelNeeded / fuelCapacity);
+    let lastStint = fuelNeeded % fuelCapacity;
+    let container = document.getElementById("result-container");
+    container.innerHTML = ''; // clear past results
+
+    if (fuelNeeded) {
+        generateResultBox(container, 'Total Laps', laps);
+        generateResultBox(container, 'Fuel Needed', fuelNeeded.toFixed(1));
+        generateResultBox(container, 'Fuel Needed (safe)', fuelSafe.toFixed(1));
+
+        if (stints > 1 && stints !== Infinity) {
+            generateResultBox(container, 'Total stints', stints);
+            generateResultBox(container, 'Last Stint Fuel', lastStint.toFixed(1));
+        }
+    } else {
+        generateResultBox(container, 'Fill missing inputs', '');
+    }
 }
+
+
+function generateResultBox(container, title, info) {
+        let boxDiv = document.createElement("div");
+        boxDiv.classList.add("calc-result-box");
+
+        let titleDiv = document.createElement("div");
+        titleDiv.classList.add("calc-result-title");
+        titleDiv.textContent = title;
+
+        let infoDiv = document.createElement("div");
+        infoDiv.classList.add("calc-result-info");
+        infoDiv.textContent = info;
+
+        boxDiv.appendChild(titleDiv);
+        boxDiv.appendChild(infoDiv);
+
+        container.appendChild(boxDiv)
+}
+

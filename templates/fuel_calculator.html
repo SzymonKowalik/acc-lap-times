@@ -1,29 +1,50 @@
 {% extends "base.html" %}
 {% block head %}
 <script src="{{ url_for('static', filename='scripts/fuel_calculator.js' ) }}" defer></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/fuel_calculator.css' ) }}">
+
 {% endblock %}
 {% block content %}
-<h1>Fuel Calculator</h1>
-<div>
-<div>
-    <b>Race Time</b>
-    <input type="number" id="race_h" name="race_h" placeholder="Hours"><b>:</b>
-    <input type="number" id="race_min" name="race_min" placeholder="Minutes">
-    <br>
-    <b>Lap Time</b>
-    <input type="number" id="lap_min" name="lap_min" placeholder="Minutes"><b>:</b>
-    <input type="number" id="lap_sec" name="lap_sec" placeholder="Seconds">
-    <br>
-    <b>Fuel Per Lap</b>
-    <input type="number" id="fuel_per_lap" name="fuel_per_lap" placeholder="Liters">
-    <br>
-    <b>Fuel Capacity</b>
-    <input type="number" id="fuel_capacity" name="fuel_capacity" placeholder="Liters">
-    <br>
-    <button onclick="fuelCalculator()">Calculate</button>
-    <br><br>
+<div class="calc-form-container">
+    <div class="calc-header">
+        <div class="calc-title">Fuel Calculator</div>
+        <div class="calc-track"><!--#TODO Import track fuel from lap table--></div>
+    </div>
+    <div class="calc-box-group">
+        <div class="calc-form-box">
+            <div class="calc-form-title">Race Time</div>
+            <div class="calc-form-input">
+                <input class="to-right" type="number" id="race_h" name="race_h" placeholder="Hours">
+                <b>:</b>
+                <input class="to-left" type="number" id="race_min" name="race_min" placeholder="Minutes">
+            </div>
+        </div>
+        <div class="calc-form-box">
+            <div class="calc-form-title">Lap Time</div>
+            <div class="calc-form-input">
+                <input class="to-right" type="number" id="lap_min" name="lap_min" placeholder="Minutes">
+                <b>:</b>
+                <input class="to-left" type="number" id="lap_sec" name="lap_sec" placeholder="Seconds">
+            </div>
+        </div>
+    </div>
+    <div class="calc-box-group">
+        <div class="calc-form-box">
+            <div class="calc-form-title">Fuel Per Lap</div>
+            <div class="calc-form-input">
+                <input type="number" id="fuel_per_lap" name="fuel_per_lap" placeholder="Liters">
+            </div>
+        </div>
+        <div class="calc-form-box">
+            <div class="calc-form-title">Fuel Capacity</div>
+            <div class="calc-form-input">
+                <input type="number" id="fuel_capacity" name="fuel_capacity" placeholder="Liters">
+            </div>
+        </div>
+    </div>
+    <div class="calc-submit">Calculate</div>
 </div>
-    <div id="result">
-</div>
+<div id="result-container">
+
 </div>
 {% endblock %}
