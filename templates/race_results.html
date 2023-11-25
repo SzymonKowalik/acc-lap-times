@@ -4,6 +4,7 @@
 {% endblock %}
 {% block content %}
 <h1>Race results</h1>
+
 <table class="results-table">
 <tr class="results-header">
     <td class="results-place">P</td>
@@ -12,7 +13,7 @@
     <td class="results-total">Total Time</td>
     <td class="results-gap">Gap</td>
 </tr>
-{% for row in data %}
+{% for row in data.result_rows %}
 <tr>
     <td class="results-place">{{ row.place }}</td>
     <td class="results-driver">{{ row.first_name }} {{ row.last_name }}</td>
@@ -27,12 +28,15 @@
 <tr hidden class="hidable">
     <td colspan="6" class="lap-times-container">
         <table class="lap-times-table">
-            {% for i in range((row.lap_times_txt|length//8) + 1) %}
+            {% for i in range((row.laps_info|length//8) + 1) %}
             <tr>
                 {% for j in range(8) %}
-                {% if (i*8+j) < row.lap_times_txt|length %}
-                <td class="lap-time-box">
-                    {{ row.lap_times_txt[i*8 + j] }}
+                {% if (i*8+j) < row.laps_info|length %}
+                {% if row.laps_info[i*8+j].is_race_fastest %}<td class="lap-time-box lap-fastest">
+                {% elif row.laps_info[i*8+j].is_personal_best %}<td class="lap-time-box lap-personal-best">
+                {% elif row.laps_info[i*8+j].is_invalidated %}<td class="lap-time-box lap-invalidated">
+                {% else %}<td class="lap-time-box">{%  endif %}
+                    {{ row.laps_info[i*8+j].lap_time_txt }}
                 </td>
                 {% else %}
                 <td class="lap-time-box-blank"></td>
@@ -45,7 +49,6 @@
 </tr>
 {% endfor %}
 </table>
-
 
 <script>
 <!--    Change hidden state of lap times table -->

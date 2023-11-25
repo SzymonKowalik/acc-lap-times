@@ -93,3 +93,7 @@ table, tr, td {
     height: 26px;
     text-align: center;
 }
+
+.lap-invalidated {color: var(--red);}
+.lap-personal-best {color: greenyellow;}
+.lap-fastest {color: mediumpurple;}
