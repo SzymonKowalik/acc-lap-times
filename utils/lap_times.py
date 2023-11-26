@@ -73,7 +73,7 @@ def best_tracks_graph(data):
                 c.append(v)
                 break
         else:
-            c.append(color_cond[6])
+            c.append(color_cond[4])
 
     # Plot using bar plot and save
     plt.figure(figsize=(12, 7))

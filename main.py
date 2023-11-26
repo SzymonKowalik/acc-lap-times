@@ -30,7 +30,10 @@ def index():
 
 @app.route('/fuel_calculator')
 def fuel_calculator():
-    return render_template('fuel_calculator.html')
+    data = generate_lap_time_data(LAP_DATA_PATH)
+    fuel_data = [[row.track, row.fuel_usage] for row in data if row.fuel_usage != '-']
+
+    return render_template('fuel_calculator.html', fuel_data=fuel_data)
 
 
 @app.route('/lap_times', methods=["GET"])

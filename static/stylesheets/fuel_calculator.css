@@ -7,7 +7,7 @@
     height: 35px;
     line-height: 35px;
     display: grid;
-    grid-template-columns: 75% 25%;
+    grid-template-columns: 67% 33%;
     background: var(--red);
     color: white;
     text-align: center;
@@ -18,6 +18,9 @@
 
 .calc-track {
     background: var(--dark-gray);
+    color: white;
+    text-align: center;
+    border: none;
 }
 
 .calc-box-group {
@@ -61,7 +64,7 @@
     cursor: pointer;
 }
 
-input[type="Number"] {
+.calc-input-number {
     background: var(--dark-gray);
     color: white;
     border: none;
@@ -69,8 +72,9 @@ input[type="Number"] {
     width: 140px;
 }
 
-input[type="Number"].to-right {text-align: right;}
-input[type="Number"].to-left {text-align: left;}
+.to-right {text-align: right;}
+.to-left {text-align: left;}
+.calc-fuel-disabled {color: var(--light-gray);}
 
 textarea:focus, input:focus {
     outline: none;

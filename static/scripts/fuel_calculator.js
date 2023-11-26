@@ -1,4 +1,18 @@
 document.querySelector(".calc-submit").addEventListener('click', fuelCalculator);
+document.querySelector(".calc-track").addEventListener('change', trackSelect);
+
+function trackSelect() {
+    let fuelPerLap = document.getElementById('fuel_per_lap')
+    if (this.value === 'custom') {
+        fuelPerLap.disabled = false;
+        fuelPerLap.value = '';
+        fuelPerLap.classList.remove('calc-fuel-disabled');
+    } else {
+        fuelPerLap.disabled = true;
+        fuelPerLap.value = this.value;
+        fuelPerLap.classList.add('calc-fuel-disabled');
+    }
+}
 
 function fuelCalculator() {
     let raceH = parseFloat(document.getElementById('race_h').value);

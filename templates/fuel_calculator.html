@@ -8,23 +8,28 @@
 <div class="calc-form-container">
     <div class="calc-header">
         <div class="calc-title">Fuel Calculator</div>
-        <div class="calc-track"><!--#TODO Import track fuel from lap table--></div>
+        <select class="calc-track">
+            <option value="custom">Custom</option>
+            {% for track, fuel in fuel_data %}
+            <option value="{{ fuel }}">{{ track }}</option>
+            {% endfor %}
+        </select>
     </div>
     <div class="calc-box-group">
         <div class="calc-form-box">
             <div class="calc-form-title">Race Time</div>
             <div class="calc-form-input">
-                <input class="to-right" type="number" id="race_h" name="race_h" placeholder="Hours">
+                <input class="calc-input-number to-right" type="number" id="race_h" name="race_h" placeholder="Hours">
                 <b>:</b>
-                <input class="to-left" type="number" id="race_min" name="race_min" placeholder="Minutes">
+                <input class="calc-input-number to-left" type="number" id="race_min" name="race_min" placeholder="Minutes">
             </div>
         </div>
         <div class="calc-form-box">
             <div class="calc-form-title">Lap Time</div>
             <div class="calc-form-input">
-                <input class="to-right" type="number" id="lap_min" name="lap_min" placeholder="Minutes">
+                <input class="calc-input-number to-right" type="number" id="lap_min" name="lap_min" placeholder="Minutes">
                 <b>:</b>
-                <input class="to-left" type="number" id="lap_sec" name="lap_sec" placeholder="Seconds">
+                <input class="calc-input-number to-left" type="number" id="lap_sec" name="lap_sec" placeholder="Seconds">
             </div>
         </div>
     </div>
@@ -32,13 +37,13 @@
         <div class="calc-form-box">
             <div class="calc-form-title">Fuel Per Lap</div>
             <div class="calc-form-input">
-                <input type="number" id="fuel_per_lap" name="fuel_per_lap" placeholder="Liters">
+                <input class="calc-input-number" type="number" id="fuel_per_lap" name="fuel_per_lap" placeholder="Liters">
             </div>
         </div>
         <div class="calc-form-box">
             <div class="calc-form-title">Fuel Capacity</div>
             <div class="calc-form-input">
-                <input type="number" id="fuel_capacity" name="fuel_capacity" placeholder="Liters">
+                <input class="calc-input-number" type="number" id="fuel_capacity" name="fuel_capacity" placeholder="Liters">
             </div>
         </div>
     </div>

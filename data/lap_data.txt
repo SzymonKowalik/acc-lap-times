@@ -1,17 +1,17 @@
 Track	Alien Time	Car	My Time	Fuel Usage	Rating
 Barcelona	1:43.2	-	-	-	-
-Brands Hatch	1:22.2	35	1:25.4	2.5	5
+Brands Hatch	1:22.2	2	1:24.6	2.5	5
 Circuit of The Americas	2:04.5	-	-	-	-
 Donington Park	1:25.9	-	-	-	-
 Hungaroring	1:42.3	-	-	-	-
-Imola	1:40.3	-	-	-	-
+Imola	1:40.3	2	1:42.4	2.8	-
 Indianapolis Motor Speedway	1:34.7	-	-	-	-
-Kyalami	1:41.3	-	-	-	-
+Kyalami	1:41.3	2	1:43.5	2.8	-
 Laguna Seca	1:21.4	-	-	-	-
 Misano	1:32.6	-	-	-	-
-Monza	1:46.7	35	1:49.5	3.2	4
-Mount Panorama	1:59.9	-	-	-	-
-Nurburgring	1:53.3	-	-	-	-
+Monza	1:46.7	35	1:48.0	3.2	4
+Mount Panorama	1:59.9	35	2:03.9	-	-
+Nurburgring	1:53.3	35	1:55.9	-	-
 Oulton Park	1:32.9	-	-	-	-
 Paul Ricard	1:52.7	-	-	-	-
 Silverstone	1:57.0	-	-	-	-
@@ -20,5 +20,5 @@ Spa Francorchamps	2:16.9	35	2:20.0	4.0	4
 Suzuka	1:59.5	-	-	-	-
 Valencia	1:29.8	-	-	-	-
 Watkins Glen	1:43.2	-	-	-	-
-Zandvoort	1:34.6	-	-	-	-
-Zolder	1:27.1	-	-	-	-
+Zandvoort	1:34.6	35	1:38.0	-	-
+Zolder	1:27.1	35	1:30.0	-	-
