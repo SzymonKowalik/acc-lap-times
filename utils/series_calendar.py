@@ -40,6 +40,7 @@ class Series:
                 # return remaining.strftime("%d")
                 return f"{remaining.days} Days Left"
 
+
 class Week:
     def __init__(self, start_date, end_date, number, track):
         self.start_date = start_date
@@ -80,7 +81,7 @@ class Week:
     def set_countdown_start(self, current_datetime):
         tomorrow_date = current_datetime.date() + timedelta(days=1)
         current_time = current_datetime.time()
-        is_next_day = True
+        is_next_day = False
 
         time_diff = dt.combine(date.min, self.upcoming_race) - dt.combine(date.min, current_time)
         # Check if next race is tomorrow, then add 1 day
@@ -89,10 +90,10 @@ class Week:
             next_day = dt(1, 1, 2, 0, 0, 0, 0)
             time_diff = dt.combine(next_day, self.upcoming_race) - dt.combine(date.min, current_time)
 
-        if is_next_day and tomorrow_date <= self.end_date:
-            self.upcoming_race_in = str(time_diff).split('.', maxsplit=1)[0]
-        else:
+        if is_next_day and tomorrow_date > self.end_date:
             self.upcoming_race_in = 'Next week'
+        else:
+            self.upcoming_race_in = str(time_diff).split('.', maxsplit=1)[0]
 
 
 def create_series(filepath):

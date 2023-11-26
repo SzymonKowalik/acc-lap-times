@@ -57,11 +57,11 @@ def generate_lap_time_data(file_path):
 def best_tracks_graph(data):
     # Get track name and percentage of best for each track
     filtered_data = [[row.track, round(row.percentage - 100, 2)] for row in data if row.percentage != '-']
-    # Sort data by percentage ascending
-    filtered_data.sort(key=lambda x: x[1])
+    # Sort lst by percentage ascending
+    filtered_data.sort(key=lambda lst: lst[1])
     # Create lists for names, percentages and colors
     x, y, c = [], [], []
-    color_cond = {2: "#0F3", 3: "#2E3", 4: "#FD3", 5: "#F93", 6: "#F03"}
+    color_cond = {1.5: "#F00", 2: "#F33", 2.5: "#F66", 3: "#FAA", 3.5: "#FCC", 4: "#FFF"}
 
     for pair in filtered_data:
         name, perc = pair
@@ -78,6 +78,9 @@ def best_tracks_graph(data):
     # Plot using bar plot and save
     plt.figure(figsize=(12, 7))
     plt.bar(x, y, color=c)
+
+    plt.xticks(rotation=30)
+    plt.subplots_adjust(bottom=0.15, top=1)
 
     plt.savefig('static/images/percentage.png', dpi=200)
     plt.clf()

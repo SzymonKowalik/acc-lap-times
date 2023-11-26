@@ -12,8 +12,8 @@ def matplotlib_settings():
     # Set compatibility with Flask
     plt.switch_backend('agg')
     # plt.style.use('dark_background')
-    plt.rcParams['axes.facecolor'] = '#222'
-    plt.rcParams['figure.facecolor'] = '#222'
+    plt.rcParams['axes.facecolor'] = '#1C1C1C'
+    plt.rcParams['figure.facecolor'] = '#1C1C1C'
     plt.rcParams['xtick.color'] = 'white'
     plt.rcParams['ytick.color'] = 'white'
     plt.rcParams['axes.edgecolor'] = 'white'

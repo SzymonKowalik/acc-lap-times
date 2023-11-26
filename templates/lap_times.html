@@ -54,13 +54,12 @@
     <td class="lap-times-fuel">{{ row.fuel_usage }}{% if row.fuel_usage != '-' %}l{% endif %}</td>
     <td class="lap-times-logo">
         {% if row.car %}
-        <img src="{{ url_for('static', filename=row.car.manufacturer_logo) }}">
+        <img alt="logo" src="{{ url_for('static', filename=row.car.manufacturer_logo) }}">
         {% endif %}
     </td>
 </tr>
 {% endfor %}
 </table>
-<!-- TODO Update tracks plot -->
-<!--<h2>Best tracks plot</h2>-->
-<!--<img src="{{ url_for('static', filename='images/percentage.png' ) }}">-->
+<h2>Best tracks plot</h2>
+<img class="lap-times-plot" src="{{ url_for('static', filename='images/percentage.png' ) }}">
 {% endblock %}

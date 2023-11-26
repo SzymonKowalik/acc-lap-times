@@ -127,3 +127,8 @@ table, tr, td {
 .lap-times-logo > img {
     width: 24px;
 }
+
+.lap-times-plot {
+    width: 800px;
+    margin: auto;
+}
