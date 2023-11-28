@@ -1,0 +1,49 @@
+:root {
+    --dark-green: #003C18;
+    --dark-red: #510000;
+}
+
+.h2h-table {
+    font-family: "Inter Semi Bold", Arial;
+    font-size: 18px;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    text-align: center;
+}
+
+table, tr, td {
+    border: none;
+    padding: 5px;
+}
+
+.h2h-table > tr {
+    height: 35px;
+}
+
+.h2h-lap {
+    width: 40px;
+    background: var(--red);
+}
+
+.h2h-car1 {
+    width: 190px;
+    background: var(--dark-gray);
+    border-right: white 3px solid;
+}
+
+.h2h-car2 {
+    width: 190px;
+    background: var(--dark-gray);
+    border-left: white 3px solid;
+}
+
+.h2h-car1-green {background-image: linear-gradient(to right, var(--dark-gray), var(--dark-green));}
+.h2h-car1-red {background-image: linear-gradient(to right, var(--dark-gray), var(--dark-red));}
+.h2h-car2-green {background-image: linear-gradient(to left, var(--dark-gray), var(--dark-green));}
+.h2h-car2-red {background-image: linear-gradient(to left, var(--dark-gray), var(--dark-red));}
+
+.h2h-diff {
+    width: 130px;
+    background: white;
+    color: var(--dark-gray);
+}

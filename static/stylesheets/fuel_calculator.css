@@ -16,12 +16,7 @@
 
 .calc-title {}
 
-.calc-track {
-    background: var(--dark-gray);
-    color: white;
-    text-align: center;
-    border: none;
-}
+.calc-track {}
 
 .calc-box-group {
     display: flex;

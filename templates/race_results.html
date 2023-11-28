@@ -50,6 +50,25 @@
 {% endfor %}
 </table>
 
+<h3>Head to Head</h3>
+<form method="POST">
+<div class="h2h-container">
+    <label class="h2h-label">Car 1</label>
+    <select class="h2h-select" class="" name="car1">
+        {% for row in data.result_rows %}
+        <option value="{{ row.car_number }}">{{ row.first_name }} {{ row.last_name }}</option>
+        {% endfor %}
+    </select>
+    <label class="h2h-label">Car 2</label>
+    <select class="h2h-select" name="car2">
+        {% for row in data.result_rows %}
+        <option value="{{ row.car_number }}">{{ row.first_name }} {{ row.last_name }}</option>
+        {% endfor %}
+    </select>
+    <input class="h2h-submit" type="submit" value="Compare">
+</div>
+</form>
+
 <script>
 <!--    Change hidden state of lap times table -->
     let rows = document.querySelectorAll(".results-driver");

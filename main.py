@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from utils.race_results import parse_race_results
 from utils.lap_times import generate_lap_time_data, best_tracks_graph
 from utils.series_calendar import get_all_series
+from utils.race_results_h2h import format_h2h_data
 
 app = Flask(__name__)
 LAP_DATA_PATH = 'data/lap_data.txt'
@@ -62,10 +63,18 @@ def lap_times():
     return render_template('lap_times.html', data=data, hide_empty=hide_empty)
 
 
-@app.route('/race_results')
+@app.route('/race_results', methods=["GET", "POST"])
 def race_results():
     race_result = parse_race_results()
-    return render_template('race_results.html', data=race_result)
+
+    if request.method == "POST" and request.form['car1'] != request.form['car2']:
+        car1_number = int(request.form['car1'])
+        car2_number = int(request.form['car2'])
+        data = format_h2h_data(car1_number, car2_number, race_result)
+
+        return render_template('race_results_h2h.html', data=data)
+    else:
+        return render_template('race_results.html', data=race_result)
 
 
 @app.route('/racing_calendar')

@@ -97,3 +97,27 @@ table, tr, td {
 .lap-invalidated {color: var(--red);}
 .lap-personal-best {color: greenyellow;}
 .lap-fastest {color: mediumpurple;}
+
+.h2h-container {
+    width: 720px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: var(--dark-gray);
+    display: grid;
+    grid-template-columns: 100px 200px 100px 200px 120px;
+    margin-bottom: 40px;
+}
+
+.h2h-label {
+    background: var(--red);
+}
+
+.h2h-select {
+}
+
+.h2h-submit {
+    background: white;
+    color: var(--dark-gray);
+    border: none;
+}

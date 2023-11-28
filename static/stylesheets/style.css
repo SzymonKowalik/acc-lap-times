@@ -21,6 +21,18 @@ body {
     overflow-x: hidden;
 }
 
+select {
+    background: var(--dark-gray);
+    color: white;
+    border: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+select > option {
+    font-family: Bahnschrift;
+}
+
 /* Scrollbar */
 /* width */
 ::-webkit-scrollbar {

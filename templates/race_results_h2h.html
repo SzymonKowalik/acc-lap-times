@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/race_results_h2h.css') }}">
+{% endblock %}
+{% block content %}
+  <h3>Head to Head</h3>
+  <table class="h2h-table">
+      <tr>
+          <td class="h2h-lap">Lap</td>
+          <td class="h2h-car1">{{ data['car1']['driver'] }}</td>
+          <td class="h2h-car2">{{ data['car2']['driver'] }}</td>
+          <td class="h2h-diff">Difference</td>
+      </tr>
+      {% for i in range(1, data['lap_count']) %}
+      <tr>
+          <td class="h2h-lap">{{ i+1 }}</td>
+          {% if data['car1']['laps'] >= i and data['car2']['laps'] >= i %}
+            {% if data['faster_car'][i] == 'car1' %}
+              <td class="h2h-car1 h2h-car1-green">{{ data['car1']['lap_times'][i] }}</td>
+              <td class="h2h-car2 h2h-car2-red">{{ data['car2']['lap_times'][i] }}</td>
+              <td class="h2h-diff">{{ data['time_difference'][i] }}</td>
+            {% else %}
+              <td class="h2h-car1 h2h-car1-red">{{ data['car1']['lap_times'][i] }}</td>
+              <td class="h2h-car2 h2h-car2-green">{{ data['car2']['lap_times'][i] }}</td>
+              <td class="h2h-diff">{{ data['time_difference'][i] }}</td>
+            {% endif %}
+          {% else %}
+          <td class="h2h-car1 ">{% if data['car1']['laps'] >= i %}{{ data['car1']['lap_times'][i] }}{% endif %}</td>
+          <td class="h2h-car2">{% if data['car2']['laps'] >= i %}{{ data['car2']['lap_times'][i] }}{% endif %}</td>
+          <td class="h2h-diff">-</td>
+          {% endif %}
+      </tr>
+      {% endfor %}
+  </table>
+{% endblock %}
