@@ -2,11 +2,12 @@ from flask import Flask, render_template, request
 import matplotlib.pyplot as plt
 from utils.race_results import parse_race_results
 from utils.lap_times import generate_lap_time_data, best_tracks_graph
-from utils.series_calendar import get_all_series
+from utils.series_calendar import create_series
 from utils.race_results_h2h import format_h2h_data
 
 app = Flask(__name__)
-LAP_DATA_PATH = 'data/lap_data.txt'
+LAP_DATA_PATH = 'data/lap_data.json'
+CALENDAR_DATA_PATH = 'data/calendar.json'
 
 
 def matplotlib_settings():
@@ -79,7 +80,7 @@ def race_results():
 
 @app.route('/racing_calendar')
 def racing_calendar():
-    series = get_all_series()
+    series = create_series(CALENDAR_DATA_PATH)
     return render_template('racing_calendar.html', data=series)
 
 

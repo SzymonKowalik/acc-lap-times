@@ -1,6 +1,7 @@
 import utils.time_processing as tp
 import matplotlib.pyplot as plt
 from utils.car_models import CAR_MODELS
+import json
 
 
 class TrackLapTimes:
@@ -42,16 +43,21 @@ class TrackLapTimes:
 
 def generate_lap_time_data(file_path):
     with open(file_path, 'r') as file:
-        data = []
-        lines = file.readlines()
-        # Format rest of the rows and count percentage
-        for row in lines[1:]:
-            track, ideal_time, car_id, my_time, fuel_usage, rating = row.strip().split('\t')
+        data = json.load(file)
+        lap_times = []
+
+        for track_data in data['lapTimes']:
+            track = track_data['track']
+            ideal_time = track_data['idealTime']
+            car_id = track_data['car']
+            my_time = track_data['myTime']
+            fuel_usage = track_data['fuelUsage']
+            rating = track_data['rating']
 
             lap_time_row = TrackLapTimes(track, car_id, ideal_time, my_time, fuel_usage, rating)
-            data.append(lap_time_row)
+            lap_times.append(lap_time_row)
 
-        return data
+        return lap_times
 
 
 def best_tracks_graph(data):

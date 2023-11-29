@@ -1,0 +1,188 @@
+{
+    "lapTimes": [
+        {
+            "track": "Barcelona",
+            "idealTime": "1:43.2",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Brands Hatch",
+            "idealTime": "1:22.2",
+            "car": 2,
+            "myTime": "1:24.6",
+            "fuelUsage": "2.5",
+            "rating": 5
+        },
+        {
+            "track": "Circuit of The Americas",
+            "idealTime": "2:04.5",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Donington Park",
+            "idealTime": "1:25.9",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Hungaroring",
+            "idealTime": "1:42.3",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Imola",
+            "idealTime": "1:40.3",
+            "car": 2,
+            "myTime": "1:42.4",
+            "fuelUsage": "2.8",
+            "rating": "-"
+        },
+        {
+            "track": "Indianapolis Motor Speedway",
+            "idealTime": "1:34.7",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Kyalami",
+            "idealTime": "1:41.3",
+            "car": 2,
+            "myTime": "1:43.5",
+            "fuelUsage": "2.8",
+            "rating": "-"
+        },
+        {
+            "track": "Laguna Seca",
+            "idealTime": "1:21.4",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Misano",
+            "idealTime": "1:32.6",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Monza",
+            "idealTime": "1:46.7",
+            "car": 35,
+            "myTime": "1:48.0",
+            "fuelUsage": "3.2",
+            "rating": 4
+        },
+        {
+            "track": "Mount Panorama",
+            "idealTime": "1:59.9",
+            "car": 35,
+            "myTime": "2:03.9",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Nurburgring",
+            "idealTime": "1:53.3",
+            "car": 35,
+            "myTime": "1:55.9",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Oulton Park",
+            "idealTime": "1:32.9",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Paul Ricard",
+            "idealTime": "1:52.7",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Silverstone",
+            "idealTime": "1:57.0",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Snetterton",
+            "idealTime": "1:45.2",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Spa Francorchamps",
+            "idealTime": "2:16.9",
+            "car": 35,
+            "myTime": "2:20.0",
+            "fuelUsage": "4.0",
+            "rating": 4
+        },
+        {
+            "track": "Suzuka",
+            "idealTime": "1:59.5",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Valencia",
+            "idealTime": "1:29.8",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Watkins Glen",
+            "idealTime": "1:43.2",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Zandvoort",
+            "idealTime": "1:34.6",
+            "car": 35,
+            "myTime": "1:38.0",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
+            "track": "Zolder",
+            "idealTime": "1:27.1",
+            "car": 35,
+            "myTime": "1:30.0",
+            "fuelUsage": "-",
+            "rating": "-"
+        }
+    ]
+}

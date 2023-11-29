@@ -1,7 +1,7 @@
 from datetime import datetime as dt
 import utils.time_processing as tp
 from datetime import timedelta, date
-import os
+import json
 
 
 class Series:
@@ -97,32 +97,32 @@ class Week:
 
 
 def create_series(filepath):
-    with open(filepath, 'r', encoding='UTF-8', errors='replace') as file:
-        for i, values in enumerate(file):
-            values = values.strip().split('\t')
-            if i == 0:
-                name, description, website, race_time, quali_time, start_date, end_date = values
-                start_date = tp.to_date(start_date)
-                end_date = tp.to_date(end_date)
-                cur_series = Series(name, description, website, race_time, quali_time, start_date, end_date)
-            else:
-                start_date, end_date, track, start_time, interval, repeats = values
-                start_date = tp.to_date(start_date)
-                end_date = tp.to_date(end_date)
-                cur_week = Week(start_date, end_date, i, track)
-                cur_week.generate_daily_start_times(start_time, float(interval), int(repeats))
-                cur_series.add_week(cur_week)
+    with open(filepath, 'r') as file:
+        data = json.load(file)
 
-    cur_series.is_active()
-    cur_series.set_current_week()
+    all_series = []
 
-    return cur_series
+    for series in data['series']:
+        name = series['name']
+        description = series['description']
+        website = series['website']
+        race_length = series['raceLength']
+        quali_length = series['qualiLength']
+        start_date = tp.to_date(series['startDate'])
+        end_date = tp.to_date(series['endDate'])
+        cur_series = Series(name, description, website, race_length, quali_length, start_date, end_date)
 
+        for week in series['weeks']:
+            start_date = tp.to_date(week['startDate'])
+            end_date = tp.to_date(week['endDate'])
+            number = week['weekNumber']
+            track = week['track']
+            cur_week = Week(start_date, end_date, number, track)
+            cur_week.generate_daily_start_times(week['firstRace'], week['raceInterval'], week['raceCount'])
+            cur_series.add_week(cur_week)
 
-def get_all_series():
-    series = []
-    relative_path = 'data/series'
-    for filename in os.listdir(relative_path):
-        filepath = f"{relative_path}/{filename}"
-        series.append(create_series(filepath))
-    return series
+        cur_series.is_active()
+        cur_series.set_current_week()
+        all_series.append(cur_series)
+
+    return all_series

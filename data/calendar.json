@@ -1,0 +1,242 @@
+{
+  "series": [
+    {
+      "name": "LFM Rookie Series",
+      "description": "Daily Races - Every 2 hours",
+      "website": "https://lowfuelmotorsport.com/seasonsv2/gt3-rookie-s12/upcoming",
+      "raceLength": "45 min",
+      "qualiLength": "15 min",
+      "startDate": "09.10.2023",
+      "endDate": "31.12.2023",
+      "weeks": [
+        {
+          "weekNumber": 1,
+          "startDate": "09.10.2023",
+          "endDate": "15.10.2023",
+          "track": "Watkins Glen",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 2,
+          "startDate": "16.10.2023",
+          "endDate": "22.10.2023",
+          "track": "Misano",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 3,
+          "startDate": "23.10.2023",
+          "endDate": "29.10.2023",
+          "track": "Suzuka Circuit",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 4,
+          "startDate": "30.10.2023",
+          "endDate": "05.11.2023",
+          "track": "Kyalami",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 5,
+          "startDate": "06.11.2023",
+          "endDate": "12.11.2023",
+          "track": "Brands Hatch Circuit",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 6,
+          "startDate": "13.11.2023",
+          "endDate": "19.11.2023",
+          "track": "Autodromo Nazionale di Monza",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 7,
+          "startDate": "20.11.2023",
+          "endDate": "26.11.2023",
+          "track": "Mount Panorama Circuit",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 8,
+          "startDate": "27.11.2023",
+          "endDate": "03.12.2023",
+          "track": "Donington Park",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 9,
+          "startDate": "04.12.2023",
+          "endDate": "10.12.2023",
+          "track": "Circuit de Paul Ricard",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 10,
+          "startDate": "11.12.2023",
+          "endDate": "17.12.2023",
+          "track": "Autodromo Enzo e Dino Ferrari",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 11,
+          "startDate": "18.12.2023",
+          "endDate": "24.12.2023",
+          "track": "Zolder",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 12,
+          "startDate": "25.12.2023",
+          "endDate": "31.12.2023",
+          "track": "Circuit de Spa Francorchamps",
+          "firstRace": "01:01",
+          "raceInterval": 2,
+          "raceCount": -1
+        }
+      ]
+    },
+    {
+      "name": "LFM Rookie Sprint",
+      "description": "Daily Races - Every 1 hour",
+      "website": "https://lowfuelmotorsport.com/seasonsv2/gt3-rookiesprint-s12/upcoming",
+      "raceLength": "25 min",
+      "qualiLength": "12 min",
+      "startDate": "09.10.2023",
+      "endDate": "31.12.2023",
+      "weeks": [
+        {
+          "weekNumber": 1,
+          "startDate": "09.10.2023",
+          "endDate": "15.10.2023",
+          "track": "Nürburgring",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 2,
+          "startDate": "16.10.2023",
+          "endDate": "22.10.2023",
+          "track": "Silverstone",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 3,
+          "startDate": "23.10.2023",
+          "endDate": "29.10.2023",
+          "track": "Circuit de Catalunya",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 4,
+          "startDate": "30.10.2023",
+          "endDate": "05.11.2023",
+          "track": "Zolder",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 5,
+          "startDate": "06.11.2023",
+          "endDate": "12.11.2023",
+          "track": "Watkins Glen",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 6,
+          "startDate": "13.11.2023",
+          "endDate": "19.11.2023",
+          "track": "Circuit de Paul Ricard",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 7,
+          "startDate": "20.11.2023",
+          "endDate": "26.11.2023",
+          "track": "Autodromo Enzo e Dino Ferrari",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 8,
+          "startDate": "27.11.2023",
+          "endDate": "03.12.2023",
+          "track": "Oulton Park",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 9,
+          "startDate": "04.12.2023",
+          "endDate": "10.12.2023",
+          "track": "Zandvoort",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 10,
+          "startDate": "11.12.2023",
+          "endDate": "17.12.2023",
+          "track": "Circuit de Spa Francorchamps",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 11,
+          "startDate": "18.12.2023",
+          "endDate": "24.12.2023",
+          "track": "Suzuka Circuit",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        },
+        {
+          "weekNumber": 12,
+          "startDate": "25.12.2023",
+          "endDate": "31.12.2023",
+          "track": "Kyalami",
+          "firstRace": "00:16",
+          "raceInterval": 1,
+          "raceCount": -1
+        }
+      ]
+    }
+  ]
+}
