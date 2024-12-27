@@ -12,7 +12,7 @@
             "track": "Brands Hatch",
             "idealTime": "1:22.2",
             "car": 2,
-            "myTime": "1:24.6",
+            "myTime": "1:23.7",
             "fuelUsage": "2.5",
             "rating": 5
         },
@@ -44,32 +44,32 @@
             "track": "Imola",
             "idealTime": "1:40.3",
             "car": 2,
-            "myTime": "1:42.4",
+            "myTime": "1:41.6",
             "fuelUsage": "2.8",
             "rating": "-"
         },
         {
             "track": "Indianapolis Motor Speedway",
             "idealTime": "1:34.7",
-            "car": "-",
-            "myTime": "-",
-            "fuelUsage": "-",
+            "car": 2,
+            "myTime": "1:37.4",
+            "fuelUsage": 2.7,
             "rating": "-"
         },
         {
             "track": "Kyalami",
             "idealTime": "1:41.3",
             "car": 2,
-            "myTime": "1:43.5",
+            "myTime": "1:42.1",
             "fuelUsage": "2.8",
             "rating": "-"
         },
         {
             "track": "Laguna Seca",
             "idealTime": "1:21.4",
-            "car": "-",
-            "myTime": "-",
-            "fuelUsage": "-",
+            "car": 2,
+            "myTime": "1:23.1",
+            "fuelUsage": 2.2,
             "rating": "-"
         },
         {
@@ -84,15 +84,15 @@
             "track": "Monza",
             "idealTime": "1:46.7",
             "car": 35,
-            "myTime": "1:48.0",
-            "fuelUsage": "3.2",
+            "myTime": "1:47.5",
+            "fuelUsage": 3.2,
             "rating": 4
         },
         {
             "track": "Mount Panorama",
             "idealTime": "1:59.9",
             "car": 35,
-            "myTime": "2:03.9",
+            "myTime": "2:03.0",
             "fuelUsage": "-",
             "rating": "-"
         },
@@ -100,7 +100,15 @@
             "track": "Nurburgring",
             "idealTime": "1:53.3",
             "car": 35,
-            "myTime": "1:55.9",
+            "myTime": "1:55.3",
+            "fuelUsage": 2.9,
+            "rating": "-"
+        },
+        {
+            "track": "Nordschleife",
+            "idealTime": "8:01.0",
+            "car": "-",
+            "myTime": "-",
             "fuelUsage": "-",
             "rating": "-"
         },
@@ -121,10 +129,18 @@
             "rating": "-"
         },
         {
+            "track": "Red Bull Ring",
+            "idealTime": "1:26.6",
+            "car": "-",
+            "myTime": "-",
+            "fuelUsage": "-",
+            "rating": "-"
+        },
+        {
             "track": "Silverstone",
             "idealTime": "1:57.0",
             "car": "-",
-            "myTime": "-",
+            "myTime": "1:59.7",
             "fuelUsage": "-",
             "rating": "-"
         },
@@ -148,8 +164,8 @@
             "track": "Suzuka",
             "idealTime": "1:59.5",
             "car": "-",
-            "myTime": "-",
-            "fuelUsage": "-",
+            "myTime": "2:01.2",
+            "fuelUsage": 3.4,
             "rating": "-"
         },
         {
@@ -180,7 +196,7 @@
             "track": "Zolder",
             "idealTime": "1:27.1",
             "car": 35,
-            "myTime": "1:30.0",
+            "myTime": "1:29.4",
             "fuelUsage": "-",
             "rating": "-"
         }
